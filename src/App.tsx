@@ -28,7 +28,7 @@ class App extends Component<{}, IState> {
     const interval = setInterval(() => {
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
         this.setState({
-          data: serverResponds,
+          data: [...this.state.data, ...serverResponds],
           showGraph: true,
         });
       });
